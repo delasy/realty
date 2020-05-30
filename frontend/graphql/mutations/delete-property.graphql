@@ -1,0 +1,7 @@
+#import '~/graphql/fragments/node'
+
+mutation DeleteProperty ($id: ID!) {
+  deleteProperty (id: $id) {
+    ...NodeFragment
+  }
+}

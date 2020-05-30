@@ -1,0 +1,4 @@
+fragment NodeFragment on Node {
+  databaseId
+  id
+}

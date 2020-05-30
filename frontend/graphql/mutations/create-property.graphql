@@ -1,0 +1,7 @@
+#import '~/graphql/fragments/node'
+
+mutation CreateProperty ($input: CreatePropertyInput!) {
+  createProperty (input: $input) {
+    ...NodeFragment
+  }
+}

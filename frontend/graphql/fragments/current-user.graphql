@@ -1,0 +1,10 @@
+fragment CurrentUserFragment on CurrentUser {
+  createdAt
+  databaseId
+  deletedAt
+  email
+  firstName
+  id
+  lastName
+  updatedAt
+}

@@ -1,0 +1,9 @@
+#import '~/graphql/fragments/current-user'
+#import '~/graphql/fragments/node'
+
+query GetCurrentUser {
+  currentUser {
+    ...CurrentUserFragment
+    ...NodeFragment
+  }
+}

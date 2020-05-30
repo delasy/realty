@@ -1,0 +1,7 @@
+#import '~/graphql/fragments/node'
+
+mutation UpdateProperty ($id: ID!, $input: UpdatePropertyInput!) {
+  updateProperty (id: $id, input: $input) {
+    ...NodeFragment
+  }
+}

@@ -1,0 +1,19 @@
+#import '~/graphql/fragments/node'
+#import '~/graphql/fragments/property'
+
+query GetProperties ($after: ID) {
+  properties (after: $after, first: 20) {
+    edges {
+      cursor
+      node {
+        ...NodeFragment
+        ...PropertyFragment
+      }
+    }
+    pageInfo {
+      endCursor
+      hasNextPage
+    }
+    totalCount
+  }
+}

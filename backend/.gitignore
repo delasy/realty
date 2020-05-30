@@ -1,0 +1,5 @@
+# Node.js dependencies directory
+/node_modules/
+
+# DotEnv environment variables
+/.env

@@ -1,0 +1,7 @@
+#import '~/graphql/fragments/node'
+
+mutation DuplicateProperty ($id: ID!) {
+  duplicateProperty (id: $id) {
+    ...NodeFragment
+  }
+}

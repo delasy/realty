@@ -1,0 +1,7 @@
+#import '~/graphql/fragments/authenticate-user-payload'
+
+mutation AuthenticateUser ($input: AuthenticateUserInput!) {
+  authenticateUser (input: $input) {
+    ...AuthenticateUserPayloadFragment
+  }
+}

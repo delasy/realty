@@ -1,0 +1,3 @@
+fragment AuthenticateUserPayloadFragment on AuthenticateUserPayload {
+  token
+}

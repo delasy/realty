@@ -1,0 +1,114 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+interface Node {
+  databaseId: UUID!
+  id: ID!
+}
+
+type AuthenticateUserPayload {
+  token: String!
+}
+
+type Connection {
+  edges: [Edge!]!
+  nodes: [Node!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type CurrentUser implements Node {
+  createdAt: DateTime!
+  databaseId: UUID!
+  deletedAt: DateTime
+  email: String!
+  firstName: String!
+  id: ID!
+  lastName: String!
+  updatedAt: DateTime!
+}
+
+type Edge {
+  cursor: ID!
+  node: Node!
+}
+
+type Mutation {
+  authenticateUser(input: AuthenticateUserInput!): AuthenticateUserPayload!
+  createProperty(input: CreatePropertyInput!): Property!
+  deleteProperty(id: ID!): Property!
+  duplicateProperty(id: ID!): Property!
+  updateProperty(id: ID!, input: UpdatePropertyInput!): Property!
+}
+
+type PageInfo {
+  endCursor: ID
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: ID
+}
+
+type Property implements Node {
+  createdAt: DateTime!
+  databaseId: UUID!
+  deletedAt: DateTime
+  id: ID!
+  name: String!
+  notes: String!
+  updatedAt: DateTime!
+  user: User!
+}
+
+type Query {
+  currentUser: CurrentUser!
+  node(id: ID!): Node!
+  properties(after: ID, before: ID, first: Int, last: Int, orderBy: PropertyOrder = {direction : DESC, field : UPDATED_AT}): Connection!
+}
+
+type User implements Node {
+  createdAt: DateTime!
+  databaseId: UUID!
+  deletedAt: DateTime
+  firstName: String!
+  id: ID!
+  lastName: String!
+  updatedAt: DateTime!
+}
+
+enum OrderDirection {
+  ASC
+  DESC
+}
+
+enum PropertyOrderField {
+  CREATED_AT
+  NAME
+  UPDATED_AT
+}
+
+input AuthenticateUserInput {
+  email: String!
+  password: String!
+}
+
+input CreatePropertyInput {
+  name: String!
+  notes: String!
+}
+
+input PropertyOrder {
+  direction: OrderDirection!
+  field: PropertyOrderField!
+}
+
+input UpdatePropertyInput {
+  name: String!
+  notes: String!
+}
+
+scalar DateTime
+scalar UUID

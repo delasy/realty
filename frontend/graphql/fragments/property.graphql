@@ -1,0 +1,16 @@
+#import '~/graphql/fragments/node'
+#import '~/graphql/fragments/user'
+
+fragment PropertyFragment on Property {
+  createdAt
+  databaseId
+  deletedAt
+  id
+  name
+  notes
+  updatedAt
+  user {
+    ...NodeFragment
+    ...UserFragment
+  }
+}
